@@ -20,4 +20,8 @@ export interface SerieControllerInterface {
     request: Request,
     response: Response,
   ): Promise<Response<RequestSuccessfullInterface<SerieInterface[]>>>;
+  create(
+    request: Request,
+    response: Response,
+  ): Promise<Response<RequestSuccessfullInterface<SerieInterface>>>;
 }
