@@ -28,4 +28,8 @@ export interface SerieControllerInterface {
     request: Request,
     response: Response,
   ): Promise<Response<RequestSuccessfullInterface<SerieInterface>>>;
+  remove(
+    request: Request,
+    response: Response,
+  ): Promise<Response<RequestSuccessfullInterface<SerieInterface>>>;
 }

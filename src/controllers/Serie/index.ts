@@ -125,10 +125,39 @@ function SerieController(): SerieControllerInterface {
     });
   }
 
+  async function remove(request: Request, response: Response) {
+    const { params = {} } = request;
+    const { id } = params;
+
+    const { rows = [] } = await connection.query(
+      `DELETE FROM serie WHERE id=${id} RETURNING *`,
+    );
+
+    const [deletedSerie] = rows;
+
+    if (!deletedSerie) {
+      return response.status(400).json({
+        ok: false,
+        data: null,
+        error: {
+          code: 400,
+          message: 'Serie was not found',
+        },
+      });
+    }
+
+    return response.json({
+      ok: true,
+      data: deletedSerie,
+      error: null,
+    });
+  }
+
   return {
     getAll,
     create,
     update,
+    remove,
   };
 }
 
