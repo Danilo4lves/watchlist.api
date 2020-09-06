@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 // Dependencies
 import { Request, Response } from 'express';
 
@@ -63,10 +61,10 @@ function MovieController(): MovieControllerInterface {
     const {
       title,
       synopsis,
-      releaseDate: release_date,
+      releaseDate,
       categories,
-      hasBeenWatched: has_been_watched = false,
-      isBeingWatched: is_being_watched = false,
+      hasBeenWatched = false,
+      isBeingWatched = false,
     } = body;
 
     const { rows = [] } = await connection.query(
@@ -96,10 +94,10 @@ function MovieController(): MovieControllerInterface {
       id,
       title,
       synopsis,
-      release_date,
+      releaseDate,
       categories,
-      has_been_watched,
-      is_being_watched,
+      hasBeenWatched,
+      isBeingWatched,
     ];
 
     const { rows: movieRows = [] } = await connection.query(
