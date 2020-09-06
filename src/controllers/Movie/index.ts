@@ -71,9 +71,9 @@ function MovieController(): MovieControllerInterface {
       `DELETE FROM movie WHERE id=${id} RETURNING *`,
     );
 
-    const [movie = {}] = rows;
+    const [movie] = rows;
 
-    if (Object.entries(movie).length === 0) {
+    if (!movie) {
       return response.status(400).json({
         ok: false,
         error: {
