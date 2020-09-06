@@ -8,3 +8,4 @@ export const SerieRouter = Router();
 
 SerieRouter.get('/serie', SerieController?.getAll);
 SerieRouter.post('/serie', SerieController?.create);
+SerieRouter.put('/serie/:id', SerieController?.update);
