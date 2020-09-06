@@ -26,4 +26,8 @@ export interface MovieControllerInterface {
     request: Request,
     response: Response,
   ): Promise<Response<RequestSuccessfullInterface<MovieInterface>>>;
+  remove(
+    request: Request,
+    response: Response,
+  ): Promise<Response<RequestSuccessfullInterface<MovieInterface>>>;
 }

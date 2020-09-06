@@ -116,10 +116,39 @@ function MovieController(): MovieControllerInterface {
     });
   }
 
+  async function remove(request: Request, response: Response) {
+    const { params = {} } = request;
+    const { id } = params;
+
+    const { rows = [] } = await connection.query(
+      `DELETE FROM movie WHERE id=${id} RETURNING *`,
+    );
+
+    const [removedMovie] = rows;
+
+    if (!removedMovie) {
+      return response.status(400).json({
+        ok: false,
+        data: null,
+        error: {
+          code: 400,
+          message: 'Movie was not found',
+        },
+      });
+    }
+
+    return response.json({
+      ok: true,
+      data: removedMovie,
+      error: null,
+    });
+  }
+
   return {
     getAll,
     create,
     update,
+    remove,
   };
 }
 
