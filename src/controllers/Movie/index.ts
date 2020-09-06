@@ -5,22 +5,22 @@ import { Request, Response } from 'express';
 import { connection } from '../../database';
 
 // Types
-import { MovieControllerInterface, MovieInterface } from './types';
+import { MovieControllerInterface } from './types';
 
 function MovieController(): MovieControllerInterface {
-    async function getAll(request: Request, response: Response) {
-        const { rows } = await connection.query('SELECT * FROM movie');
+  async function getAll(request: Request, response: Response) {
+    const { rows } = await connection.query('SELECT * FROM movie');
 
-        return response?.json({
-            ok: true,
-            data: rows,
-            error: null,
-        });
-    }
+    return response?.json({
+      ok: true,
+      data: rows,
+      error: null,
+    });
+  }
 
-    return {
-        getAll,
-    };
+  return {
+    getAll,
+  };
 }
 
 export default MovieController();
