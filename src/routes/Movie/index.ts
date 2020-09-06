@@ -8,3 +8,4 @@ export const MovieRouter = Router();
 
 MovieRouter.get('/movie', MovieController?.getAll);
 MovieRouter.post('/movie', MovieController?.create);
+MovieRouter.put('/movie/:id', MovieController?.update);

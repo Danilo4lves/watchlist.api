@@ -22,4 +22,8 @@ export interface MovieControllerInterface {
     request: Request,
     response: Response,
   ): Promise<Response<RequestSuccessfullInterface<MovieInterface>>>;
+  update(
+    request: Request,
+    response: Response,
+  ): Promise<Response<RequestSuccessfullInterface<MovieInterface>>>;
 }
