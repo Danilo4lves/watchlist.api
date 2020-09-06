@@ -18,4 +18,8 @@ export interface MovieControllerInterface {
     request: Request,
     response: Response,
   ): Promise<Response<RequestSuccessfullInterface<MovieInterface[]>>>;
+  create(
+    request: Request,
+    response: Response,
+  ): Promise<Response<RequestSuccessfullInterface<MovieInterface>>>;
 }
