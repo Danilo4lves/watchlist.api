@@ -8,19 +8,19 @@ import { connection } from '../../database';
 import { SerieControllerInterface } from './types';
 
 function SerieController(): SerieControllerInterface {
-    async function getAll(request: Request, response: Response) {
-        const { rows } = await connection?.query('SELECT * FROM serie');
+  async function getAll(request: Request, response: Response) {
+    const { rows } = await connection?.query('SELECT * FROM serie');
 
-        return response?.json({
-            ok: true,
-            data: rows,
-            error: null,
-        });
-    }
+    return response?.json({
+      ok: true,
+      data: rows,
+      error: null,
+    });
+  }
 
-    return {
-        getAll
-    };
+  return {
+    getAll,
+  };
 }
 
 export default SerieController();

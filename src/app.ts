@@ -8,25 +8,25 @@ import cors from 'cors';
 import { routers } from './routes';
 
 function App() {
-    const app = express();
+  const app = express();
 
-    function useRoutes() {
-        routers.forEach((router) => {
-            app.use(router);
-        });
-    }
+  function useRoutes() {
+    routers.forEach(router => {
+      app.use(router);
+    });
+  }
 
-    function useMiddlewares() {
-        app.use(express.json());
-        app.use(morgan('common'));
-        app.use(helmet());
-        app.use(cors());
-    }
+  function useMiddlewares() {
+    app.use(express.json());
+    app.use(morgan('common'));
+    app.use(helmet());
+    app.use(cors());
+  }
 
-    useRoutes();
-    useMiddlewares();
+  useRoutes();
+  useMiddlewares();
 
-    return app;
+  return app;
 }
 
 export default App();

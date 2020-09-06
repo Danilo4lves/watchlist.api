@@ -5,16 +5,19 @@ import { Request, Response } from 'express';
 import { RequestSuccessfullInterface } from '../../infra/types';
 
 export interface SerieInterface {
-    title: string;
-    synopsis: string;
-    releaseDate: string;
-    categories: string[];
-    hasBeenWatched: boolean;
-    isBeingWatched: boolean;
-    totalSeasons: number;
-    totalEpisodes: number;
-};
+  title: string;
+  synopsis: string;
+  releaseDate: string;
+  categories: string[];
+  hasBeenWatched: boolean;
+  isBeingWatched: boolean;
+  totalSeasons: number;
+  totalEpisodes: number;
+}
 
 export interface SerieControllerInterface {
-    getAll(request: Request, response: Response): Promise<Response<RequestSuccessfullInterface<SerieInterface[]>>>;
+  getAll(
+    request: Request,
+    response: Response,
+  ): Promise<Response<RequestSuccessfullInterface<SerieInterface[]>>>;
 }
