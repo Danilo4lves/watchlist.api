@@ -23,8 +23,8 @@ function App() {
     app.use(cors());
   }
 
-  useRoutes();
   useMiddlewares();
+  useRoutes();
 
   return app;
 }
